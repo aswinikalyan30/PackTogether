@@ -1,0 +1,43 @@
+[build]
+  # Directory to change to before starting a build
+  base = "."
+  
+  # Directory that contains the deploy-ready HTML files and assets
+  publish = "build"
+  
+  # Default build command
+  command = "npm run build"
+
+# Production context: all deploys from the Production branch set in your site's
+# deploy contexts will inherit these settings.
+[context.production.environment]
+  REACT_APP_ENV = "production"
+
+# Deploy Preview context: all deploy previews will inherit these settings
+[context.deploy-preview.environment]
+  REACT_APP_ENV = "preview"
+
+# Branch deploy context: all deploys that are not from a pull/merge request or
+# from the production branch will inherit these settings
+[context.branch-deploy.environment]
+  REACT_APP_ENV = "branch"
+
+# Redirect rules for single page applications
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
