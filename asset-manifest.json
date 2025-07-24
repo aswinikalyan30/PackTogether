@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/PackTogether/static/css/main.a2c2f052.css",
+    "main.js": "/PackTogether/static/js/main.57be5382.js",
+    "static/js/453.54f675b0.chunk.js": "/PackTogether/static/js/453.54f675b0.chunk.js",
+    "index.html": "/PackTogether/index.html",
+    "main.a2c2f052.css.map": "/PackTogether/static/css/main.a2c2f052.css.map",
+    "main.57be5382.js.map": "/PackTogether/static/js/main.57be5382.js.map",
+    "453.54f675b0.chunk.js.map": "/PackTogether/static/js/453.54f675b0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a2c2f052.css",
+    "static/js/main.57be5382.js"
+  ]
+}
