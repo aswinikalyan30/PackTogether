@@ -25,7 +25,13 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "netlify:build": "react-scripts build",
+    "netlify:deploy": "netlify deploy --dir=build",
+    "netlify:deploy:prod": "netlify deploy --dir=build --prod",
+    "netlify:dev": "netlify dev",
+    "netlify:init": "netlify init",
+    "serve": "npx serve -s build"
   },
   "eslintConfig": {
     "extends": [
@@ -46,6 +52,8 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.2.0"
+    "gh-pages": "^6.2.0",
+    "netlify-cli": "^17.10.1",
+    "serve": "^14.2.1"
   }
 }
