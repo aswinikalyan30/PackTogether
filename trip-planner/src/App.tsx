@@ -31,6 +31,7 @@ export interface Member {
   name: string;
   email: string;
   avatar: string;
+  role: 'organizer' | 'member' | 'guest';
 }
 
 export interface Activity {
@@ -45,14 +46,20 @@ export interface Activity {
   comments: Comment[];
   suggestedBy: string;
   status: 'suggested' | 'confirmed' | 'rejected';
+  type: 'culture' | 'food' | 'nature' | 'beach' | 'entertainment' | 'shopping' | 'adventure';
+  estimatedCost: number;
+  duration: string;
+  difficulty: 'easy' | 'moderate' | 'hard';
+  weatherDependent: boolean;
 }
 
 export interface Comment {
   id: string;
-  userId: string;
-  userName: string;
-  text: string;
+  authorId: string;
+  author: string;
+  content: string;
   timestamp: string;
+  reactions?: { [key: string]: number };
 }
 
 export interface Expense {
@@ -85,10 +92,10 @@ function App() {
     startDate: '2024-07-15',
     endDate: '2024-07-25',
     members: [
-      { id: '1', name: 'Alice Johnson', email: 'alice@example.com', avatar: '👩‍💻' },
-      { id: '2', name: 'Bob Smith', email: 'bob@example.com', avatar: '👨‍💼' },
-      { id: '3', name: 'Carol Brown', email: 'carol@example.com', avatar: '👩‍🎨' },
-      { id: '4', name: 'David Wilson', email: 'david@example.com', avatar: '👨‍🚀' },
+      { id: '1', name: 'Alice Johnson', email: 'alice@example.com', avatar: '👩‍💻', role: 'organizer' as const },
+      { id: '2', name: 'Bob Smith', email: 'bob@example.com', avatar: '👨‍💼', role: 'member' as const },
+      { id: '3', name: 'Carol Brown', email: 'carol@example.com', avatar: '👩‍🎨', role: 'member' as const },
+      { id: '4', name: 'David Wilson', email: 'david@example.com', avatar: '👨‍🚀', role: 'guest' as const },
     ]
   });
 
